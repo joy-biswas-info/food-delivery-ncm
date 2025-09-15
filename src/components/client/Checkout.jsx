@@ -49,6 +49,8 @@ export default function Checkout() {
   // Step 2: Verify OTP and place order
   const handleVerifyOTP = async (e) => {
     e.preventDefault();
+    console.log(cart);
+
     if (!otp) return alert("Enter OTP code.");
 
     try {
@@ -133,14 +135,8 @@ export default function Checkout() {
 
       {user && (
         <div className="text-center space-y-2">
-          <p>
-            Logged in as: <strong>{user.displayName || user.phoneNumber}</strong>
-          </p>
-          <button
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
-            onClick={() => alert("You can now place order directly.")}
-          >
-            Proceed to Place Order
+          <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
+            Place Order
           </button>
         </div>
       )}
